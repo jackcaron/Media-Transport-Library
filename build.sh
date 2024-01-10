@@ -91,6 +91,12 @@ pushd "${APP_BUILD_DIR}"
 ninja
 popd
 
+if [ -z "$MTL_BUILD_EXTRA" ];  then
+    echo "NOT building tests, plugins, ld_preload, and mtl_manager, define MTL_BUILD_EXTRA to build them"
+    exit 0
+fi
+
+
 # build tests
 pushd tests/
 meson setup "${TEST_BUILD_DIR}" -Dbuildtype="$buildtype" -Denable_asan="$enable_asan"
