@@ -12,6 +12,16 @@ message('BUILD Environment: ' + exec_env)
 # enable BSD_SOURCE
 add_global_arguments('-D_DEFAULT_SOURCE', language : 'c')
 
+# DOCKER BUILD extra options
+if get_option('add_gnu99_args') == true
+  add_global_arguments('-std=gnu99', language : 'c')
+  add_global_arguments('-Wno-error=strict-aliasing', language : 'c')
+  add_global_arguments('-Wno-error=missing-braces', language : 'c')
+  add_global_arguments('-Wno-error=unused-parameter', language : 'c')
+  add_global_arguments('-Wno-error=maybe-uninitialized', language : 'c')
+  add_global_arguments('-DADJ_SETOFFSET=256', language : 'c')
+endif
+
 # get external variables
 add_global_arguments('-D__MTL_GIT__="'+ run_command('git', 'describe', '--abbrev=8', '--dirty', '--always', check: false).stdout().strip() + '"', language : 'c')
 add_global_arguments('-D__MTL_LIB_BUILD__="' + meson.project_version() + '"', language : 'c')

@@ -6,3 +6,5 @@ option('enable_asan', type: 'boolean', value: false, description: 'enable/disabl
 
 option('enable_tap', type: 'boolean', value: false, description: 'enable/disable Windows TAP')
 option('dpdk_root_dir', type: 'string', value: '..\dpdk', description: 'dpdk source code root dir, for Windows')
+
+option('add_gnu99_args', type: 'boolean', value: false, description: 'add necessary arguments to build with older compiler')
