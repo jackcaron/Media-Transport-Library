@@ -2,3 +2,6 @@
 # Copyright 2022 Intel Corporation
 
 option('enable_asan', type: 'boolean', value: false, description: 'enable/disable address sanitizer, debug usage only')
+
+option('add_gnu99_args', type: 'boolean', value: false, description: 'add necessary arguments to build with older compiler')
+option('build_all_apps', type: 'boolean', value: true, description: 'build all apps, not just ConvApp and RxTxApp')

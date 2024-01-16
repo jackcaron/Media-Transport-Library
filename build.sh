@@ -96,7 +96,6 @@ if [ -z "$MTL_BUILD_EXTRA" ];  then
     exit 0
 fi
 
-
 # build tests
 pushd tests/
 meson setup "${TEST_BUILD_DIR}" -Dbuildtype="$buildtype" -Denable_asan="$enable_asan"
