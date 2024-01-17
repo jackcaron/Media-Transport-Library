@@ -30,11 +30,11 @@ SOURCE_FMT="yuv420p"
 RESOLUTION="${WIDTH}x${HEIGHT}"
 
 echo "EXTRACT $NB_FRAMES FRAMES AS RAW DATA"
-ffmpeg -y -i $INPUT -vframes $NB_FRAMES -c:v: rawvideo .tmpConvert1.yuv > /dev/null
+ffmpeg -y -i "$INPUT" -vframes "$NB_FRAMES" -c:v: rawvideo .tmpConvert1.yuv > /dev/null
 echo "CONVERT TO YUV422 10LE"
-ffmpeg -y -s $RESOLUTION -pix_fmt $SOURCE_FMT -i .tmpConvert1.yuv -pix_fmt yuv422p10le .tmpConvert2.yuv > /dev/null
+ffmpeg -y -s "$RESOLUTION" -pix_fmt "$SOURCE_FMT" -i .tmpConvert1.yuv -pix_fmt yuv422p10le .tmpConvert2.yuv > /dev/null
 echo "CONVERT TO RFC 4175"
-$APP_DIR/ConvApp -width $WIDTH -height $HEIGHT -in_pix_fmt yuv422p10le -i .tmpConvert2.yuv -out_pix_fmt yuv422rfc4175be10 -o $OUTPUT
+$APP_DIR/ConvApp -width "$WIDTH" -height "$HEIGHT" -in_pix_fmt yuv422p10le -i .tmpConvert2.yuv -out_pix_fmt yuv422rfc4175be10 -o "$OUTPUT"
 
 # clean up
 rm -f .tmpConvert*
