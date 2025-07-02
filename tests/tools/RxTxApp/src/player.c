@@ -189,8 +189,8 @@ int st_app_init_display(struct st_display* d, char* name, int width, int height,
 
   if (!d) return -ENOMEM;
   snprintf(d->name, 32, "%s", name);
-  d->window_w = SCREEN_WIDTH;
-  d->window_h = SCREEN_HEIGHT;
+  d->window_w = width;
+  d->window_h = height;
   d->pixel_w = width;
   d->pixel_h = height;
   d->fmt = SDL_PIXELFORMAT_UYVY;
