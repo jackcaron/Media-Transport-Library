@@ -164,4 +164,5 @@ meson setup "${RXTXAPP_BUILD_DIR}" -Dbuildtype="$buildtype" -Denable_asan="$enab
 popd
 pushd "${RXTXAPP_BUILD_DIR}"
 ninja
+cp "${RXTXAPP_BUILD_DIR}/RxTxApp" "${WORKSPACE}/RxTxApp"
 popd
