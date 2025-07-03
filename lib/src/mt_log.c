@@ -20,10 +20,10 @@ static mtl_log_prefix_formatter_t g_mt_log_prefix_format = log_default_prefix;
 
 int mtl_set_log_prefix_formatter(mtl_log_prefix_formatter_t f) {
   if (f) {
-    info("%s, new formatter %p\n", __func__, f);
+    // info("%s, new formatter %p\n", __func__, f);
     g_mt_log_prefix_format = f;
   } else {
-    info("%s, switch to default as user prefix is null\n", __func__);
+    // info("%s, switch to default as user prefix is null\n", __func__);
     g_mt_log_prefix_format = log_default_prefix;
   }
   return 0;
@@ -36,7 +36,7 @@ mtl_log_prefix_formatter_t mt_get_log_prefix_formatter(void) {
 static mtl_log_printer_t g_mt_log_printer;
 
 int mtl_set_log_printer(mtl_log_printer_t f) {
-  info("%s, new printer %p\n", __func__, f);
+  // info("%s, new printer %p\n", __func__, f);
   g_mt_log_printer = f;
   return 0;
 }
